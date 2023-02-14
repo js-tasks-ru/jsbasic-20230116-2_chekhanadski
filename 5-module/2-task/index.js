@@ -1,4 +1,5 @@
 function toggleText() {
+  
   let buttonElem = document.querySelector('.toggle-text-button'); 
   let textElem = document.getElementById('text');  
    
