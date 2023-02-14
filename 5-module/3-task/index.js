@@ -1,7 +1,3 @@
-
-
-
-
 function initCarousel() {   
 
   let carouselInner = document.querySelector(".carousel__inner");
