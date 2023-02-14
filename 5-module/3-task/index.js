@@ -1,4 +1,8 @@
-function initCarousel() { 
+
+
+
+
+function initCarousel() {   
 
   let carouselInner = document.querySelector(".carousel__inner");
   let carouselArrowLeft = document.querySelector(".carousel__arrow_left");
@@ -9,10 +13,6 @@ function initCarousel() {
   carouselArrowLeft.addEventListener("click", clickLeft);       
   carouselArrowLeft.style.display = "none";                   
   carouselArrowRight.addEventListener("click", clickRight);   
-  
-  if (windowWidth < 988) {
-    sizeOffset = windowWidth;
-  } 
 
   function getOffset() {                  
     let offset = carouselInner.offset;
@@ -35,4 +35,9 @@ function initCarousel() {
     carouselInner.style.transform = `translateX(${offset * sizeOffset}px)`;
     carouselInner.offset = offset;
   }
+
+  if (windowWidth < 988) {
+    sizeOffset = windowWidth;
+  } 
+
 }
