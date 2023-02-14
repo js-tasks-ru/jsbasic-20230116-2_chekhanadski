@@ -6,9 +6,13 @@ function initCarousel() {
   let sizeOffset = document.querySelector(".carousel__img").width;
   let windowWidth = `${carouselInner.offsetWidth}`;
   
+  if (windowWidth < 988) {
+    sizeOffset = windowWidth;
+  } 
+  
   carouselArrowLeft.addEventListener("click", clickLeft);       
   carouselArrowLeft.style.display = "none";                   
-  carouselArrowRight.addEventListener("click", clickRight);   
+  carouselArrowRight.addEventListener("click", clickRight);
 
   function getOffset() {                  
     let offset = carouselInner.offset;
@@ -30,10 +34,6 @@ function initCarousel() {
 
     carouselInner.style.transform = `translateX(${offset * sizeOffset}px)`;
     carouselInner.offset = offset;
-  }
-
-  if (windowWidth < 988) {
-    sizeOffset = windowWidth;
   } 
 
 }
