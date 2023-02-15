@@ -5,7 +5,7 @@ function toggleText() {
    
   buttonElem.onclick = function() {
     if (!textElem.hasAttribute('hidden')) {
-      textElem.setAttribute("hidden", "hidden");
+      textElem.setAttribute('hidden', true);
     } else {textElem.removeAttribute('hidden');}         
   }; 
       
