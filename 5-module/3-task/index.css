@@ -92,15 +92,15 @@
   align-items: center;
   justify-content: center;
   width: 70px;
-  height: 70px;
+  height: 70px;  
 }
 
 .carousel__arrow_right {
-  right: 0;
+  right: 0;   
 }
 
 .carousel__arrow_left {
-  left: 0;
+  left: 0;    
 }
 
 .carousel__arrow img,
