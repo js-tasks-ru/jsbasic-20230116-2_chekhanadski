@@ -4,14 +4,14 @@ export default class ProductCard {
 
   constructor(product) {
     this.elem = this.card(product);                                         /*В качестве аргумента в конструктор класса передаем объект, описывающий товар*/ 
-    this.elem.addEventListener("click", (action) => this.onClick(action));  /*.addEventListener - метод назначающией на элемент обработчик событий(пр. Click)*/  
+    this.elem.addEventListener("click", (event) => this.onClick(event));    /*вешаем click на this.elem выполниться описаные действия в OnClick(event)*/  
     this.product = product.id;                                              /*созданное событие product-add должно содержать в себе уникальный идентификатор товара id*/ 
   }
 
-  onClick(action) {
-    if (action.target.closest(".card__button")) {                           /*свойстов [action.target] - содержит элемент, на котором сработало событие; [closest] - ищет ближайший родительский элемент подходящий указаному классу*/ 
+  onClick(event) {
+    if (event.target.closest(".card__button")) {                           //[event.target] - это исходный элемент, на котором произошло событие(элемент на который мы кликнули); [closest] - проверяет кликнули ли мы на нужный нам элементе .carousel__arrow_left или элемент вложенный в него
       let customEvent = new CustomEvent("product-add", { bubbles: true, detail: this.product });
-      this.elem.dispatchEvent(customEvent);                                 /*привязали к кнопке событие 'customEvent' срабатывающего по click на кнопку*/ 
+      this.elem.dispatchEvent(customEvent);                                 
     }
   }
   
