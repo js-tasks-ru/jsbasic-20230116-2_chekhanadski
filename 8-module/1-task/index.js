@@ -5,12 +5,14 @@ export default class CartIcon {
     this.render();
 
     this.addEventListeners();
-  }
+  }assign
 
+  // Отрисовать пустую иконку корзины
   render() {
     this.elem = createElement('<div class="cart-icon"></div>');
   }
 
+  // Заполнить её данными из объекта cart (объяснено ниже)
   update(cart) {
     if (!cart.isEmpty()) {
       this.elem.classList.add('cart-icon_visible');
@@ -38,7 +40,38 @@ export default class CartIcon {
     window.addEventListener('resize', () => this.updatePosition());
   }
 
+  
+  // позиционировать иконку корзины на экране
   updatePosition() {
-    // ваш код ...
+
+    if (this.initialTopCoord === undefined) {                                                                               
+      this.initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;                                    
+    }
+
+    if (!(this.elem.offsetWidth === 0) && !(this.elem.offsetHight === 0) && document.documentElement.clientWidth > 767) {   
+
+      let leftIndent = Math.min(                                                                                           
+        document.querySelector('.container').getBoundingClientRect().right + 20,                                            
+        document.documentElement.clientWidth - this.elem.offsetWidth - 10                                                   
+      ) + 'px';
+
+      if (window.pageYOffset > this.initialTopCoord) {
+        Object.assign(this.elem.style, {                 
+          position: 'fixed',                              
+          top: '50px',                                    
+          zIndex: 1e3,                                   
+          right: '10px',                                 
+          left: leftIndent                                
+        });
+      }
+      else {                                              
+        Object.assign(this.elem.style, {                  
+          position: '',
+          top: '',
+          left: '',
+          zIndex: ''
+        });
+      }
+    }
   }
 }
