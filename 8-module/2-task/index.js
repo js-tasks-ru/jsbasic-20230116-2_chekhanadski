@@ -13,8 +13,9 @@ export default class ProductGrid {
 
   // вставляем из задачи 6.2
   onClick(event) {
-    if (event.target.closest(".card__button")) {                           
-      let customEvent = new CustomEvent("product-add", { bubbles: true, detail: this.product });
+    if (event.target.closest(".card__button")) {  
+      let Id = event.target.closest(".card").getAttribute("id");                         
+      let customEvent = new CustomEvent("product-add", { bubbles: true, detail: Id });
       this.elem.dispatchEvent(customEvent);                                 
     }
   }
